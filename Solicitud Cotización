@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So</title>
+    <link rel="stylesheet" href="Style.css">
+    
+</head>
+<body>
+
+<h1>Solicitud de Cotización</h1>
+
+<form id="cotizacionForm">
+    <div class="form-group">
+        <label for="nombre">Nombres y Apellidos</label>
+        <input type="text" id="nombre" name="nombre" required>
+    </div>
+
+    <div class="form-group">
+        <label for="ciudad">Ciudad</label>
+        <select id="ciudad" name="ciudad" required>
+            <option value="">Seleccione una ciudad</option>
+            <option value="Bogotá">Bogotá</option>
+            <option value="Medellín">Medellín</option>
+            <option value="Cali">Cali</option>
+            <option value="Cartagena">Cartagena</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="direccion">Dirección</label>
+        <input type="text" id="direccion" name="direccion" required>
+    </div>
+
+    <div class="form-group">
+        <label for="celular">Celular</label>
+        <input type="tel" id="celular" name="celular" required>
+    </div>
+
+    <div class="form-group">
+        <label>Productos</label>
+        <div class="product-group">
+            <input type="checkbox" id="producto1" name="productos[]" value="Producto 1">
+            <label for="producto1">Producto 1</label>
+            <input type="number" name="cantidad1" min="1" placeholder="Cantidad">
+        </div>
+        <div class="product-group">
+            <input type="checkbox" id="producto2" name="productos[]" value="Producto 2">
+            <label for="producto2">Producto 2</label>
+            <input type="number" name="cantidad2" min="1" placeholder="Cantidad">
+        </div>
+        <div class="product-group">
+            <input type="checkbox" id="producto3" name="productos[]" value="Producto 3">
+            <label for="producto3">Producto 3</label>
+            <input type="number" name="cantidad3" min="1" placeholder="Cantidad">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button type="submit">Enviar datos</button>
+        <button type="button" class="cancel" onclick="cancelar()">Cancelar</button>
+    </div>
+</form>
+
+<script>
+    document.getElementById('cotizacionForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        alert('Datos enviados correctamente. Aquí se procesarían los datos para almacenarlos.');
+        // Aquí iría el código para enviar los datos al servidor.
+    });
+
+    function cancelar() {
+        window.location.href = '/'; // Redirige a la página inicial.
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+Style.css
+
+
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 20px;
+}
+
+/* Formulario */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+button {
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Grupos de productos */
+.product-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.product-group label {
+    flex: 1;
+    margin: 0 10px 0 0;
+}
+
+.product-group input[type="number"] {
+    width: 80px;
+}
+
+/* Botones */
+button[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+}
+
+button.cancel {
+    background-color: #dc3545;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Media Queries (Responsividad) */
+@media (max-width: 768px) {
+    .product-group {
+        flex-wrap: wrap;
+    }
+    .product-group input[type="number"] {
+        margin-top: 10px;
+        width: 100%;
+    }
+    button {
+        font-size: 14px;
+    }
+}
